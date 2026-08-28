@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Team Task Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Team Task Management System</h1>
+        <p>Manage your team's tasks efficiently</p>
+    </header>
+
+
+    <!-- Navigation -->
+    <nav>
+        <button onclick="showSection('dashboard')">Dashboard</button>
+        <button onclick="showSection('tasks')">Tasks</button>
+        <button onclick="showSection('team')">Team Members</button>
+    </nav>
+
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Dashboard -->
+        <section id="dashboard" class="section">
+
+            <h2>Dashboard</h2>
+
+            <div class="dashboard-container">
+
+                <div class="card">
+                    <h3>Total Tasks</h3>
+                    <p id="totalTasks">0</p>
+                </div>
+
+                <div class="card">
+                    <h3>Completed</h3>
+                    <p id="completedTasks">0</p>
+                </div>
+
+                <div class="card">
+                    <h3>In Progress</h3>
+                    <p id="progressTasks">0</p>
+                </div>
+
+                <div class="card">
+                    <h3>To Do</h3>
+                    <p id="todoTasks">0</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Tasks Section -->
+        <section id="tasks" class="section hidden">
+
+            <h2>Tasks</h2>
+
+            <button class="add-task-btn" onclick="openTaskForm()">
+                + Add Task
+            </button>
+
+            <div id="taskForm" class="task-form hidden">
+
+                <h3>Add New Task</h3>
+
+                <input
+                    type="text"
+                    id="taskName"
+                    placeholder="Enter task name"
+                >
+
+                <textarea
+                    id="taskDescription"
+                    placeholder="Enter task description"
+                ></textarea>
+
+                <select id="taskMember">
+                    <option value="">Select Team Member</option>
+                    <option value="Member 1">Member 1</option>
+                    <option value="Member 2">Member 2</option>
+                </select>
+
+                <select id="taskPriority">
+                    <option value="">Select Priority</option>
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                </select>
+
+                <input
+                    type="date"
+                    id="taskDeadline"
+                >
+
+                <select id="taskStatus">
+                    <option value="To Do">To Do</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                </select>
+
+                <button onclick="addTask()">Create Task</button>
+
+                <button
+                    class="cancel-btn"
+                    onclick="closeTaskForm()"
+                >
+                    Cancel
+                </button>
+
+            </div>
+
+
+            <!-- Task List -->
+
+            <div id="taskList">
+
+                <p id="noTasks">
+                    No tasks available.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Team Section -->
+
+        <section id="team" class="section hidden">
+
+            <h2>Team Members</h2>
+
+            <div class="team-container">
+
+                <div class="member-card">
+                    <h3>Member 1</h3>
+                    <p>Tasks Assigned: <span id="member1Tasks">0</span></p>
+                </div>
+
+                <div class="member-card">
+                    <h3>Member 2</h3>
+                    <p>Tasks Assigned: <span id="member2Tasks">0</span></p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            Team Task Management System | Semester III Mini Project
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
