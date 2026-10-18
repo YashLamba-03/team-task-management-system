@@ -6,7 +6,7 @@
 
     <title>Team Task Management System</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -72,7 +72,7 @@
 
             <div id="taskForm" class="task-form hidden">
 
-                <h3>Add New Task</h3>
+                <h3 id="taskFormTitle">Add New Task</h3>
 
                 <input
                     type="text"
@@ -109,7 +109,7 @@
                     <option value="Completed">Completed</option>
                 </select>
 
-                <button onclick="addTask()">Create Task</button>
+                <button id="saveTaskBtn" onclick="saveTask()">Create Task</button>
 
                 <button
                     class="cancel-btn"
@@ -121,21 +121,42 @@
             </div>
 
 
+            <!-- Search and Filter -->
+            <div class="filter-bar">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search tasks..."
+                    oninput="renderTaskList()"
+                >
+
+                <select id="filterStatus" onchange="renderTaskList()">
+                    <option value="All">All Statuses</option>
+                    <option value="To Do">To Do</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                </select>
+
+                <select id="filterPriority" onchange="renderTaskList()">
+                    <option value="All">All Priorities</option>
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                </select>
+
+            </div>
+
+
             <!-- Task List -->
-
             <div id="taskList">
-
-                <p id="noTasks">
-                    No tasks available.
-                </p>
-
+                <p>No tasks available.</p>
             </div>
 
         </section>
 
 
         <!-- Team Section -->
-
         <section id="team" class="section hidden">
 
             <h2>Team Members</h2>
@@ -160,17 +181,14 @@
 
 
     <!-- Footer -->
-
     <footer>
-
-        <p>
-            Team Task Management System | Semester III Mini Project
-        </p>
-
+        <p>Team Task Management System | Semester III Mini Project</p>
     </footer>
 
 
-    <script src="script.js"></script>
+    <!-- Scripts go at the end so the page elements exist before the code runs -->
+    <script src="js/taskLogic.js"></script>
+    <script src="js/app.js"></script>
 
 </body>
 </html>
